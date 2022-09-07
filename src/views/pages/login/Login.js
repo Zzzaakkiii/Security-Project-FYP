@@ -1,4 +1,5 @@
-import React from 'react'
+import React, { useState } from 'react'
+import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import {
   CButton,
@@ -16,7 +17,58 @@ import {
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
 
+import api from '../../../Services/DataControlService';
+
 const Login = () => {
+  const navigate = useNavigate();
+
+  const [email, setEmail] = useState();
+  const [password, setPassword] = useState();
+  const [error, setError] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
+  const [token, setToken] = useState("");
+  const [role, setRole] = useState("");
+
+  const handleEmailChange = e => {
+    setEmail(e.target.value)
+  }
+
+  const handlePasswordChange = e => {
+    setPassword(e.target.value)
+  }
+
+  const handleSubmit = async () => {
+    const res = await login();
+    if (res) {
+      setRole(res.data.data.role);
+      setToken(res.data.data.token);
+      localStorage.setItem("token", res.data.data.token);
+      localStorage.setItem("role", res.data.data.role);
+      navigate('/dashboard', { replace: true });
+    }
+  }
+
+  const login = async () => {
+    const request = {
+      email: email,
+      password: password
+    };
+
+    try {
+      const response = await api.post("api/v2/auth/login", request);
+      setError(false);
+      setErrorMessage("");
+      return response;
+    }
+    catch (err) {
+      setError(true);
+      setErrorMessage(err.response.data.msg);
+      console.log(err)
+    }
+
+    return 0;
+  }
+
   return (
     <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
       <CContainer>
@@ -32,7 +84,7 @@ const Login = () => {
                       <CInputGroupText>
                         <CIcon icon={cilUser} />
                       </CInputGroupText>
-                      <CFormInput placeholder="Username" autoComplete="username" />
+                      <CFormInput placeholder="Username" autoComplete="username" onChange={handleEmailChange} />
                     </CInputGroup>
                     <CInputGroup className="mb-4">
                       <CInputGroupText>
@@ -42,20 +94,17 @@ const Login = () => {
                         type="password"
                         placeholder="Password"
                         autoComplete="current-password"
+                        onChange={handlePasswordChange}
                       />
                     </CInputGroup>
                     <CRow>
                       <CCol xs={6}>
-                        <CButton color="primary" className="px-4">
+                        <CButton color="primary" className="px-4" onClick={handleSubmit}>
                           Login
                         </CButton>
                       </CCol>
-                      <CCol xs={6} className="text-right">
-                        <CButton color="link" className="px-0">
-                          Forgot password?
-                        </CButton>
-                      </CCol>
                     </CRow>
+                    {error && <span style={{ color: "red", textAlign: "center", margin: "5px" }}>{errorMessage}</span>}
                   </CForm>
                 </CCardBody>
               </CCard>
