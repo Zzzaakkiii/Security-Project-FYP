@@ -50,13 +50,8 @@ const SuperFundNotification = () => {
         }
     }, [])
 
-    const handleApproval = (decision, id) => {
+    const handleApproval = request => {
         const approve = async () => {
-            const request = {
-                id: id,
-                status: decision,
-            };
-
             try {
                 const data = await api.put("v3/superadmin/update/request", request, {
                     headers: {
@@ -111,10 +106,10 @@ const SuperFundNotification = () => {
                                             </div>
                                         </CTableDataCell>
                                         <CTableDataCell>
-                                            <CButton onClick={() => handleApproval("approved", item._id)}>Approve</CButton>
+                                            <CButton onClick={() => handleApproval({ status: "approved", id: item._id, user_id: item.user._id, amount: item.amount })}>Approve</CButton>
                                         </CTableDataCell>
                                         <CTableDataCell>
-                                            <CButton onClick={() => handleApproval("rejected", item._id)}>Reject</CButton>
+                                            <CButton onClick={() => handleApproval({ status: "rejected", id: item._id })}>Reject</CButton>
                                         </CTableDataCell>
                                     </CTableRow>
                                 ))}
