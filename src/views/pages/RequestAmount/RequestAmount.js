@@ -66,7 +66,7 @@ const RequestAmount = () => {
     }
 
     return (
-        <div className="bg-light min-vh-100 d-flex flex-row align-items-center">
+        <div className={location.pathname === "/dashboard" ? "bg-light min-vh-50 d-flex flex-row align-items-center" : "bg-light min-vh-100 d-flex flex-row align-items-center"}>
             <CContainer>
                 <CRow className="justify-content-center">
                     <CCol md={8}>
