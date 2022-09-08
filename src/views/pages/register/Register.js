@@ -53,7 +53,7 @@ const Register = () => {
     }
   }
 
-  const signup = async (values) => {
+  const signup = async () => {
     const request = {
       first_name: firstName,
       last_name: lastName,

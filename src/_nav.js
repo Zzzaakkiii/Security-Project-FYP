@@ -284,6 +284,11 @@ const _nav = [
       },
       {
         component: CNavItem,
+        name: 'Create Admin',
+        to: '/createAdmin',
+      },
+      {
+        component: CNavItem,
         name: 'Error 404',
         to: '/404',
       },
