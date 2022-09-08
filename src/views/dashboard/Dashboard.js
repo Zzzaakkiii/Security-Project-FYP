@@ -7,6 +7,7 @@ import WidgetsDropdown from '../widgets/WidgetsDropdown'
 import Notifications from '../pages/Notifications/Notifications';
 import RecentUsers from '../pages/recentUsers/RecentUsers';
 import RequestAmount from '../pages/RequestAmount/RequestAmount';
+import FundNotification from '../pages/FundNotification/FundNotification';
 
 const moment = require('moment');
 
@@ -23,6 +24,7 @@ const Dashboard = () => {
   return (
     <>
       {localStorage.getItem("role") === "admin" && <Notifications />}
+      {localStorage.getItem("role") === "admin" && <FundNotification />}
       {localStorage.getItem("role") === "admin" && <RecentUsers />}
       {localStorage.getItem("role") === "user" && <RequestAmount />}
 

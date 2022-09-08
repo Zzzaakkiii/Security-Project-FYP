@@ -5,7 +5,8 @@ import {
   cilNotes,
   cilSpeedometer,
   cilBell,
-  cilUser
+  cilUser,
+  cilMoney
 } from '@coreui/icons'
 import { CNavItem } from '@coreui/react'
 
@@ -21,6 +22,12 @@ const _nav = [
     name: 'Notification',
     to: '/notification',
     icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Fund Requests',
+    to: '/fundnotify',
+    icon: <CIcon icon={cilMoney} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,
