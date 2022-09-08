@@ -4,7 +4,8 @@ import { CBadge } from '@coreui/react'
 import {
   cilNotes,
   cilSpeedometer,
-  cilBell
+  cilBell,
+  cilUser
 } from '@coreui/icons'
 import { CNavItem } from '@coreui/react'
 
@@ -23,9 +24,15 @@ const _nav = [
   },
   {
     component: CNavItem,
-    name: 'CreateAdmin',
+    name: 'Create Admin',
     to: '/createAdmin',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Recent Users',
+    to: '/recent',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
 ]
 

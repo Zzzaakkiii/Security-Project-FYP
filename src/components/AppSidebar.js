@@ -22,11 +22,13 @@ const AppSidebar = () => {
   const [newArray, setNewArray] = useState([]);
 
   useEffect(() => {
-    localStorage.getItem("role") === "admin"
-      ? setNewArray(navigation.filter(e => e.name !== 'CreateAdmin'))
-      : localStorage.getItem("role") === "super-admin"
-        ? setNewArray(navigation.filter(e => e.name !== 'Notification'))
-        : ''
+    if (localStorage.getItem("role") === "admin") {
+      setNewArray(navigation.filter(e => e.name !== 'Create Admin'))
+    } else if (localStorage.getItem("role") === "super-admin") {
+      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users'))
+    } else {
+
+    }
   }, [])
 
   return (
