@@ -18,41 +18,31 @@ import { CNavItem } from '@coreui/react'
 const _nav = [
   {
     component: CNavItem,
-    name: 'Dashboard',
+    name: 'Home',
     to: '/dashboard',
     icon: <CIcon icon={cilSpeedometer} customClassName="nav-icon" />,
-  },
-  {
-    component: CNavItem,
-    name: 'Login',
-    to: '/login',
-  },
-  {
-    component: CNavItem,
-    name: 'Register',
-    to: '/register',
-  },
-  {
-    component: CNavItem,
-    name: 'Create Admin',
-    to: '/createAdmin',
-  },
-  {
-    component: CNavItem,
-    name: 'Notification',
-    to: '/notification',
   },
   localStorage.getItem("role") === "admin" ?
     {
       component: CNavItem,
-    name: 'Error 404',
-    to: '/404',
-    } : {},
-  {
-    component: CNavItem,
-    name: 'Error 500',
-    to: '/500',
-  },
+      name: 'Notification',
+      to: '/notification',
+    } : {
+      component: CNavItem,
+      name: '<- Back',
+      to: '/',
+    },
+
+  localStorage.getItem("role") === "super-admin" ?
+    {
+      component: CNavItem,
+      name: 'Create Admin',
+      to: '/createAdmin',
+    } : {
+      component: CNavItem,
+      name: '<- Back',
+      to: '/',
+    },
 ]
 
 export default _nav
