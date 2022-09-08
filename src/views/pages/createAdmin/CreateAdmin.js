@@ -63,7 +63,7 @@ const CreatAdmin = () => {
         };
 
         try {
-            const response = await api.post("api/v3/create/admin", request, {
+            const response = await api.post("v3/create/admin", request, {
                 headers: {
                     authorization: 'Bearer '.concat(_token),
                 },

@@ -62,7 +62,7 @@ const Register = () => {
     };
 
     try {
-      const response = await api.post("api/v2/auth/signup", request);
+      const response = await api.post("v2/auth/signup", request);
       setError(false);
       setErrorMessage("");
       setSuccess(false);

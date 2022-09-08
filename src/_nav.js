@@ -39,9 +39,15 @@ const _nav = [
   },
   {
     component: CNavItem,
+    name: 'Notification',
+    to: '/notification',
+  },
+  localStorage.getItem("role") === "admin" ?
+    {
+      component: CNavItem,
     name: 'Error 404',
     to: '/404',
-  },
+    } : {},
   {
     component: CNavItem,
     name: 'Error 500',

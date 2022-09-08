@@ -55,7 +55,7 @@ const Login = () => {
     };
 
     try {
-      const response = await api.post("api/v2/auth/login", request);
+      const response = await api.post("v2/auth/login", request);
       setError(false);
       setErrorMessage("");
       return response;
