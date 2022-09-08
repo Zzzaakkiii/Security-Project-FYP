@@ -34,6 +34,12 @@ const _nav = [
     to: '/recent',
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: 'Request Amount',
+    to: '/requestamount',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+  },
 ]
 
 export default _nav

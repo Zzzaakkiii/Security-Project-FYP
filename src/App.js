@@ -17,6 +17,7 @@ const Register = React.lazy(() => import('./views/pages/register/Register'))
 const CreatAdmin = React.lazy(() => import('./views/pages/createAdmin/CreateAdmin'))
 const Notification = React.lazy(() => import('./views/pages/Notifications/Notifications'))
 const RecentUsers = React.lazy(() => import('./views/pages/recentUsers/RecentUsers'))
+const RequestAmount = React.lazy(() => import('./views/pages/RequestAmount/RequestAmount'))
 const Page404 = React.lazy(() => import('./views/pages/page404/Page404'))
 const Page500 = React.lazy(() => import('./views/pages/page500/Page500'))
 
@@ -31,6 +32,7 @@ class App extends Component {
             <Route exact path="/createAdmin" name="Create Admin" element={<CreatAdmin />} />
             <Route exact path="/notification" name="Notifications" element={<Notification />} />
             <Route exact path="/recent" name="Recent Users" element={<RecentUsers />} />
+            <Route exact path='/requestamount' name="Request Amount" element={<RequestAmount />} />
             <Route exact path="/404" name="Page 404" element={<Page404 />} />
             <Route exact path="/500" name="Page 500" element={<Page500 />} />
             <Route path="*" name="Home" element={<DefaultLayout />} />

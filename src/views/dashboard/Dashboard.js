@@ -6,6 +6,7 @@ import WidgetsDropdown from '../widgets/WidgetsDropdown'
 
 import Notifications from '../pages/Notifications/Notifications';
 import RecentUsers from '../pages/recentUsers/RecentUsers';
+import RequestAmount from '../pages/RequestAmount/RequestAmount';
 
 const moment = require('moment');
 
@@ -23,6 +24,8 @@ const Dashboard = () => {
     <>
       {localStorage.getItem("role") === "admin" && <Notifications />}
       {localStorage.getItem("role") === "admin" && <RecentUsers />}
+      {localStorage.getItem("role") === "user" && <RequestAmount />}
+
       {/* <WidgetsDropdown />
       <WidgetsBrand withCharts /> */}
     </>

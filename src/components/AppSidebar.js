@@ -23,11 +23,11 @@ const AppSidebar = () => {
 
   useEffect(() => {
     if (localStorage.getItem("role") === "admin") {
-      setNewArray(navigation.filter(e => e.name !== 'Create Admin'))
+      setNewArray(navigation.filter(e => e.name !== 'Create Admin' && e.name !== 'Request Amount'))
     } else if (localStorage.getItem("role") === "super-admin") {
-      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users'))
-    } else {
-
+      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users' && e.name !== 'Request Amount'))
+    } else if (localStorage.getItem("role") === "user") {
+      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users' && e.name !== 'Create Admin'))
     }
   }, [])
 
