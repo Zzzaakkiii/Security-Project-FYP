@@ -46,13 +46,12 @@ const Dashboard = () => {
           authorization: 'Bearer '.concat(localStorage.getItem("token")),
         },
       });
-      console.log(data.data.msg)
       setRecentUsers(data.data.msg);
     };
 
     const interval = setInterval(() => {
       fetchUsers();
-    }, 3000);
+    }, 2000);
 
     return () => {
       clearInterval(interval);

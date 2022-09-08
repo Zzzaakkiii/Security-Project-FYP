@@ -1,4 +1,6 @@
 import React, { useState } from 'react'
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     CButton,
     CCard,
@@ -10,6 +12,7 @@ import {
     CInputGroup,
     CInputGroupText,
     CRow,
+    CCardHeader
 } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 import { cilLockLocked, cilUser } from '@coreui/icons'
@@ -18,6 +21,8 @@ import api from '../../../Services/DataControlService';
 const _token = localStorage.getItem("token");
 
 const CreatAdmin = () => {
+    const location = useLocation();
+    const navigate = useNavigate();
     const [firstName, setFirstName] = useState("");
     const [lastName, setLastName] = useState("");
     const [email, setEmail] = useState("");
@@ -88,6 +93,11 @@ const CreatAdmin = () => {
                 <CRow className="justify-content-center">
                     <CCol md={9} lg={7} xl={6}>
                         <CCard className="mx-4">
+                            <CCardHeader>
+                                {location.pathname === "/createAdmin" &&
+                                    <CButton onClick={() => navigate(-1)}><span>&#8629;</span></CButton>}
+                                <strong>  Create Admin</strong>
+                            </CCardHeader>
                             <CCardBody className="p-4">
                                 <CForm>
                                     <h1>Create New Admin</h1>

@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react'
-
+import { useLocation } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import {
     CButton,
     CCard,
@@ -23,7 +24,8 @@ import api from '../../../Services/DataControlService';
 const moment = require('moment');
 
 const Notifications = () => {
-
+    const location = useLocation();
+    const navigate = useNavigate();
     const [notifications, setNotifications] = useState([]);
 
     useEffect(() => {
@@ -40,7 +42,7 @@ const Notifications = () => {
 
             const interval = setInterval(() => {
                 fetchNotifications();
-            }, 3000);
+            }, 2000);
 
             return () => {
                 clearInterval(interval);
@@ -77,7 +79,9 @@ const Notifications = () => {
             <CCol xs>
                 <CCard className="mb-4">
                     <CCardHeader>
-                        Notifications
+                        {location.pathname === "/notification" &&
+                            <CButton onClick={() => navigate(-1)}><span>&#8629;</span></CButton>}
+                        <strong>  Notifications</strong>
                     </CCardHeader>
                     <CCardBody>
                         <CTable align="middle" className="mb-0 border" hover responsive>
