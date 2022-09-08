@@ -20,6 +20,7 @@ import {
 } from '@coreui/icons'
 
 import api from '../../../Services/DataControlService';
+const moment = require('moment');
 
 const Notifications = () => {
 
@@ -39,7 +40,7 @@ const Notifications = () => {
 
             const interval = setInterval(() => {
                 fetchNotifications();
-            }, 15000);
+            }, 3000);
 
             return () => {
                 clearInterval(interval);
@@ -75,7 +76,9 @@ const Notifications = () => {
         <CRow>
             <CCol xs>
                 <CCard className="mb-4">
-                    <CCardHeader>Notifications</CCardHeader>
+                    <CCardHeader>
+                        NOtifications
+                    </CCardHeader>
                     <CCardBody>
                         <CTable align="middle" className="mb-0 border" hover responsive>
                             <CTableHead color="light">
@@ -95,7 +98,9 @@ const Notifications = () => {
                                             <div>New Signup Request from {item.first_name}</div>
                                             <div className="small text-medium-emphasis">
                                                 <span>email id: {item.email}</span>
-                                                <span>{item.created_at}</span>
+                                            </div>
+                                            <div>
+                                                <span>{moment(item.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}</span>
                                             </div>
                                         </CTableDataCell>
                                         <CTableDataCell>
