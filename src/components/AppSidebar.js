@@ -1,7 +1,7 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 
-import { CSidebar, CSidebarBrand, CSidebarNav, CSidebarToggler } from '@coreui/react'
+import { CSidebar, CSidebarNav, CSidebarToggler } from '@coreui/react'
 import CIcon from '@coreui/icons-react'
 
 import { AppSidebarNav } from './AppSidebarNav'
@@ -19,6 +19,15 @@ const AppSidebar = () => {
   const dispatch = useDispatch()
   const unfoldable = useSelector((state) => state.sidebarUnfoldable)
   const sidebarShow = useSelector((state) => state.sidebarShow)
+  const [newArray, setNewArray] = useState([]);
+
+  useEffect(() => {
+    localStorage.getItem("role") === "admin"
+      ? setNewArray(navigation.filter(e => e.name !== 'CreateAdmin'))
+      : localStorage.getItem("role") === "super-admin"
+        ? setNewArray(navigation.filter(e => e.name !== 'Notification'))
+        : ''
+  }, [])
 
   return (
     <CSidebar
@@ -31,7 +40,7 @@ const AppSidebar = () => {
     >
       <CSidebarNav>
         <SimpleBar>
-          <AppSidebarNav items={navigation} />
+          <AppSidebarNav items={newArray} />
         </SimpleBar>
       </CSidebarNav>
       <CSidebarToggler
