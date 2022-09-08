@@ -39,7 +39,7 @@ const Dashboard = () => {
 
   useEffect(() => {
     const role = localStorage.getItem("role");
-    // if (role === "admin") {
+    if (role === "admin") {
     const fetchUsers = async () => {
       const data = await api.get("v1/recent/user", {
         headers: {
@@ -57,15 +57,13 @@ const Dashboard = () => {
     return () => {
       clearInterval(interval);
     };
-    // }
+    }
   }, [])
 
   return (
     <>
       {localStorage.getItem("role") === "admin" && <Notifications />}
-      <WidgetsDropdown />
-      <WidgetsBrand withCharts />
-      <CRow>
+      {localStorage.getItem("role") === "admin" && <CRow>
         <CCol xs>
           <CCard className="mb-4">
             <CCardHeader>
@@ -104,6 +102,9 @@ const Dashboard = () => {
           </CCard>
         </CCol>
       </CRow>
+      }
+      {/* <WidgetsDropdown />
+      <WidgetsBrand withCharts /> */}
     </>
   )
 }

@@ -4,6 +4,7 @@ import { CBadge } from '@coreui/react'
 import {
   cilNotes,
   cilSpeedometer,
+  cilBell
 } from '@coreui/icons'
 import { CNavItem } from '@coreui/react'
 
@@ -18,10 +19,7 @@ const _nav = [
     component: CNavItem,
     name: 'Notification',
     to: '/notification',
-    icon: <>
-      <CBadge color="danger">9</CBadge>
-      <span className="visually-hidden">unread messages</span>
-    </>,
+    icon: <CIcon icon={cilBell} customClassName="nav-icon" />,
   },
   {
     component: CNavItem,

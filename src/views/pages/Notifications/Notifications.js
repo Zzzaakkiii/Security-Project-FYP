@@ -77,7 +77,7 @@ const Notifications = () => {
             <CCol xs>
                 <CCard className="mb-4">
                     <CCardHeader>
-                        NOtifications
+                        Notifications
                     </CCardHeader>
                     <CCardBody>
                         <CTable align="middle" className="mb-0 border" hover responsive>
