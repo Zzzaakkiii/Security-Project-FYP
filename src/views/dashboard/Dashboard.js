@@ -8,8 +8,7 @@ import Notifications from '../pages/Notifications/Notifications';
 import RecentUsers from '../pages/recentUsers/RecentUsers';
 import RequestAmount from '../pages/RequestAmount/RequestAmount';
 import FundNotification from '../pages/FundNotification/FundNotification';
-
-const moment = require('moment');
+import SuperFundNotification from '../pages/SuperAdminNotify/SuperAdminNotify';
 
 const Dashboard = () => {
 
@@ -27,6 +26,7 @@ const Dashboard = () => {
       {localStorage.getItem("role") === "admin" && <FundNotification />}
       {localStorage.getItem("role") === "admin" && <RecentUsers />}
       {localStorage.getItem("role") === "user" && <RequestAmount />}
+      {localStorage.getItem("role") === "super-admin" && <SuperFundNotification />}
 
       {/* <WidgetsDropdown />
       <WidgetsBrand withCharts /> */}

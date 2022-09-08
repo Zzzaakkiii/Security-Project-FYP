@@ -31,6 +31,12 @@ const _nav = [
   },
   {
     component: CNavItem,
+    name: 'Super Fund Requests',
+    to: '/superfundnotify',
+    icon: <CIcon icon={cilMoney} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
     name: 'Create Admin',
     to: '/createAdmin',
     icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
