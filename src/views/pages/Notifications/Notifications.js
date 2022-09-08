@@ -20,15 +20,10 @@ import {
 } from '@coreui/icons'
 
 import api from '../../../Services/DataControlService';
-let timer = 1000;
 
 const Notifications = () => {
 
     const [notifications, setNotifications] = useState([]);
-
-    const changeTimer = () => {
-        if (timer < 1000000) timer *= 10;
-    }
 
     useEffect(() => {
         const role = localStorage.getItem("role");
@@ -40,13 +35,11 @@ const Notifications = () => {
                     },
                 });
                 setNotifications(data.data.msg);
-                console.log(data.data.msg)
             };
 
             const interval = setInterval(() => {
                 fetchNotifications();
-                changeTimer();
-            }, timer);
+            }, 15000);
 
             return () => {
                 clearInterval(interval);
