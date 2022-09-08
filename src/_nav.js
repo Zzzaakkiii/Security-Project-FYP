@@ -1,17 +1,9 @@
 import React from 'react'
 import CIcon from '@coreui/icons-react'
+import { CBadge } from '@coreui/react'
 import {
-  cilBell,
-  cilCalculator,
-  cilChartPie,
-  cilCursor,
-  cilDescription,
-  cilDrop,
   cilNotes,
-  cilPencil,
-  cilPuzzle,
   cilSpeedometer,
-  cilStar,
 } from '@coreui/icons'
 import { CNavItem } from '@coreui/react'
 
@@ -25,11 +17,13 @@ const _nav = [
   localStorage.getItem("role") === "admin" ?
     {
       component: CNavItem,
-      name: 'Notification',
+      name: '  Notification',
       to: '/notification',
+      icon: <><CBadge color="danger">9</CBadge>
+        <span className="visually-hidden">unread messages</span></>,
     } : {
       component: CNavItem,
-      name: '<- Back',
+      name: '',
       to: '/',
     },
 
@@ -38,9 +32,10 @@ const _nav = [
       component: CNavItem,
       name: 'Create Admin',
       to: '/createAdmin',
+      icon: <CIcon icon={cilNotes} customClassName="nav-icon" />,
     } : {
       component: CNavItem,
-      name: '<- Back',
+      name: '',
       to: '/',
     },
 ]
