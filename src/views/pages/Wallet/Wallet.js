@@ -9,7 +9,7 @@ import {
 import api from '../../../Services/DataControlService'
 
 const Wallet = () => {
-    const [amount, setAmount] = useState()
+    const [amount, setAmount] = useState(0)
 
     useEffect(() => {
         if (localStorage.getItem("role") === "user") {
