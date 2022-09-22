@@ -23,11 +23,11 @@ const AppSidebar = () => {
 
   useEffect(() => {
     if (localStorage.getItem("role") === "admin") {
-      setNewArray(navigation.filter(e => e.name !== 'Create Admin' && e.name !== 'Request Amount' && e.name !== 'Super Fund Requests'))
+      setNewArray(navigation.filter(e => e.name !== 'Create Admin' && e.name !== 'Request Amount' && e.name !== 'Super Fund Requests' && e.name !== 'Super Request Logs' && e.name !== 'Approved Request'))
     } else if (localStorage.getItem("role") === "super-admin") {
-      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users' && e.name !== 'Request Amount' && e.name !== 'Fund Requests'))
+      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users' && e.name !== 'Request Amount' && e.name !== 'Fund Requests' && e.name !== 'Admin Request Logs' && e.name !== 'Approved Request'))
     } else if (localStorage.getItem("role") === "user") {
-      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users' && e.name !== 'Create Admin' && e.name !== 'Fund Requests' && e.name !== 'Super Fund Requests'))
+      setNewArray(navigation.filter(e => e.name !== 'Notification' && e.name !== 'Recent Users' && e.name !== 'Create Admin' && e.name !== 'Fund Requests' && e.name !== 'Super Fund Requests' && e.name !== 'Super Request Logs' && e.name !== 'Admin Request Logs'))
     }
   }, [])
 

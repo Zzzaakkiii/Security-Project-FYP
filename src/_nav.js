@@ -53,6 +53,24 @@ const _nav = [
     to: '/requestamount',
     icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
   },
+  {
+    component: CNavItem,
+    name: 'Super Request Logs',
+    to: '/salogs',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Admin Request Logs',
+    to: '/alogs',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+  },
+  {
+    component: CNavItem,
+    name: 'Approved Request',
+    to: '/ulogs',
+    icon: <CIcon icon={cilUser} customClassName="nav-icon" />,
+  },
 ]
 
 export default _nav
