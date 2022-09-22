@@ -63,7 +63,7 @@ const URequestLogs = () => {
                         <CTable align="middle" className="mb-0 border" hover responsive>
                             <CTableHead color="light">
                                 <CTableRow>
-                                    <CTableHeaderCell class="text-center">Requested Amount</CTableHeaderCell>
+                                    <CTableHeaderCell className="text-center">Requested Amount</CTableHeaderCell>
                                     <CTableHeaderCell className="text-center">Request Time</CTableHeaderCell>
                                     <CTableHeaderCell className="text-center">Request Status</CTableHeaderCell>
                                 </CTableRow>
@@ -71,13 +71,13 @@ const URequestLogs = () => {
                             <CTableBody>
                                 {requests.map((item, index) => (
                                     <CTableRow v-for="item in notifications" key={item._id}>
-                                        <CTableDataCell class="text-center">
+                                        <CTableDataCell className="text-center">
                                             {item.amount}
                                         </CTableDataCell>
-                                        <CTableDataCell class="text-center">
+                                        <CTableDataCell className="text-center">
                                             {moment(item.created_at).format('dddd, MMMM Do YYYY, h:mm:ss a')}
                                         </CTableDataCell>
-                                        <CTableDataCell class="text-center">
+                                        <CTableDataCell className="text-center">
                                             Approved
                                         </CTableDataCell>
                                     </CTableRow>
