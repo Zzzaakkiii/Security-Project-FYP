@@ -33,6 +33,7 @@ const Dashboard = () => {
       {localStorage.getItem("role") === "user" && <Wallet />}
       {localStorage.getItem("role") === "user" && <RequestAmount />}
       {localStorage.getItem("role") === "user" && <UREquestLogs />}
+      <div></>
     </>
   )
 }
