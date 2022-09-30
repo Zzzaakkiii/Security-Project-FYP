@@ -36,13 +36,7 @@ const RecentUsers = () => {
                 setRecentUsers(data.data.msg);
             };
 
-            const interval = setInterval(() => {
-                fetchUsers();
-            }, 2000);
-
-            return () => {
-                clearInterval(interval);
-            };
+            fetchUsers();
         }
     }, [])
     return (

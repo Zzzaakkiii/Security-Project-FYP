@@ -40,13 +40,7 @@ const FundNotification = () => {
                 setNotifications(data.data.msg);
             };
 
-            const interval = setInterval(() => {
-                fetchNotifications();
-            }, 2000);
-
-            return () => {
-                clearInterval(interval);
-            };
+            fetchNotifications();
         }
     }, [])
 

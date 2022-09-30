@@ -40,13 +40,7 @@ const AREquestLogs = () => {
                 setRequests(data.data.msg);
             }
 
-            const interval = setInterval(() => {
-                fetchRequests();
-            }, 2000);
-
-            return () => {
-                clearInterval(interval);
-            };
+            fetchRequests();
         }
     }, [])
 
